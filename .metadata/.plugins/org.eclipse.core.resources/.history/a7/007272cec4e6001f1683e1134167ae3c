@@ -1,0 +1,105 @@
+package Controlador;
+
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.List;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import DaoImp.ClassProveedorImp;
+import model.TblProveedorcl2;
+
+
+public class ControladorProveedor extends HttpServlet {
+	//variables
+	private static final long serialVersionUID = 1L;
+       
+	
+	//constructor
+    public ControladorProveedor() {
+        super();
+    }
+
+    
+    //funciones
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		// response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		//instanciamos la respectiva clase
+		ClassProveedorImp crudimp = new ClassProveedorImp();
+		//AÑADIMOS
+		TblProveedorcl2 tblprov = new TblProveedorcl2(); 
+		//recuperamos el listado de proveedores de la BD
+		List<TblProveedorcl2> listadoproveedores =  crudimp.ListadoProveedor();
+		//enviamos a la vista
+		request.setAttribute("listado", listadoproveedores);
+		
+		
+		//CONTINUAMOS
+		//recibimos el valor segun accion		
+		String accion = request.getParameter("accion");
+		if(accion!=null){
+			switch(accion){
+			case "Modificar":
+				int cod = Integer.parseInt(request.getParameter("cod"));
+				//asignamos los valores
+				tblprov.setIdprooveedorcl2(cod);
+				//buscamos el codigo a actualziar
+				TblProveedorcl2 prov = crudimp.BuscarProveedor(tblprov);
+				SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+				
+				//asignamos los valores
+				request.setAttribute("codigo", prod.getIdproducto());
+				request.setAttribute("producto", prod.getNomprod());
+				request.setAttribute("cantidad", prod.getCantidad());
+				request.setAttribute("precio", prod.getPrecio());
+				request.setAttribute("total", prod.getTotal());
+				request.setAttribute("nrolote", prod.getNrolote());
+				request.setAttribute("codbarras", prod.getCodbarras());
+				request.setAttribute("fecha", format.format(prod.getFechaven()));
+				//redireccionamos
+				request.getRequestDispatcher("/FrmActualizarProducto.jsp").forward(request, response);
+				
+				break;
+			case "Registrar":
+				//redireccionamos hacia la vista jsp
+				request.getRequestDispatcher("/FrmRegistrarProducto.jsp").forward(request, response);
+				break;
+			case "Eliminar":
+				int codelim = Integer.parseInt(request.getParameter("cod"));
+				//asignamos los valores
+				tblprod.setIdproducto(codelim);
+				//invocamos al metodo eliminar
+				crudimp.EliminarProducto(tblprod);
+				List<TblProducto>listado=crudimp.ListadoProducto();
+				//enviamos a la vista
+				request.setAttribute("listado", listado);
+				//redireccionamos
+				request.getRequestDispatcher("/FrmRegistrarProducto.jsp").forward(request, response);				
+				break;
+			case "Listar":
+				//redireccionamos hacia la vista *.jsp
+				request.getRequestDispatcher("/MenuPrincipal.jsp").forward(request, response);
+				break;				
+			default:
+				//System.out.println("Looking forward to the Weekend");
+			}//fin switch
+		}//fin if		
+		
+		
+		//redireccionamos hacia la vista *.jsp
+		//request.getRequestDispatcher("/MenuPrincipal.jsp").forward(request, response);		
+	}//fin doGet
+
+	
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
+

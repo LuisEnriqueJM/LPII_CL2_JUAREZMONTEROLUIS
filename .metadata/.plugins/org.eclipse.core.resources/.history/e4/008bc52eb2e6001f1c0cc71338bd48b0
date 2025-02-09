@@ -1,0 +1,60 @@
+package Interfaces;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import model.TblProveedorcl2;
+
+
+public class ClassProveedorImp implements IProveedor {
+
+	@Override
+	public void RegistrarProveedor(TblProveedorcl2 tblproveedor) {
+		//establecer conexion con la unidad de persistencia
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("LPII_CL2_JUAREZMONTEROLUIS");	
+		EntityManager em = emf.createEntityManager();
+
+		try{
+			//iniciamos la transaccion
+			em.getTransaction().begin();
+			//registramos
+			em.persist(tblproveedor);
+			//emitimos mensaje por pantalla
+			System.out.println("PROVEEDOR registrado en BD correctamente");
+			//confirmamos
+			em.getTransaction().commit();
+		}catch(RuntimeException e){
+			e.getMessage();
+		}finally{
+			em.close();
+		}		
+	}//fin RegistrarProveedor
+
+	@Override
+	public void ActualizarProveedor(TblProveedorcl2 tblproveedor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void EliminarProveedor(TblProveedorcl2 tblproveedor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<TblProveedorcl2> ListadoProveedor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TblProveedorcl2 BuscarProveedor(TblProveedorcl2 tblproveedor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

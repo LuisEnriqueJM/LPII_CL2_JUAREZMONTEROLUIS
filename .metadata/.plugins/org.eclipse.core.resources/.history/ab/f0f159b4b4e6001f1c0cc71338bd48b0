@@ -1,0 +1,15 @@
+package TestEntidades;
+
+import Interfaces.ClassProveedorImp;
+import model.TblProveedorcl2;
+
+public class TestEntidadProveedor {
+
+	public static void main(String[] args) {
+
+		TblProveedorcl2 tbl = new TblProveedorcl2();
+		ClassProveedorImp crudimp = new ClassProveedorImp(); 
+
+	}
+
+}

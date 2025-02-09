@@ -1,0 +1,39 @@
+package Interfaces;
+
+import java.util.List;
+
+import model.TblProveedorcl2;
+
+public class ClassProveedorImp implements IProveedor {
+
+	@Override
+	public void RegistrarProveedor(TblProveedorcl2 tblproveedor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ActualizarProveedor(TblProveedorcl2 tblproveedor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void EliminarProveedor(TblProveedorcl2 tblproveedor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<TblProveedorcl2> ListadoProveedor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TblProveedorcl2 BuscarProveedor(TblProveedorcl2 tblproveedor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

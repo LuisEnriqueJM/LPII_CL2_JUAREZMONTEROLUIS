@@ -1,0 +1,51 @@
+package Controlador;
+
+import java.io.IOException;
+import java.util.List;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import DaoImp.ClassProveedorImp;
+import model.TblProveedorcl2;
+
+
+public class ControladorProveedor extends HttpServlet {
+	//variables
+	private static final long serialVersionUID = 1L;
+       
+	//constructor
+    public ControladorProveedor() {
+        super();
+    }
+
+
+    //funciones
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		// response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		//instanciamos la respectiva clase
+		ClassProveedorImp crudimp = new ClassProveedorImp();
+		
+		TblProveedorcl2 tblprov = new TblProveedorcl2(); 
+		
+		//recuperamos el listado de proveedores de la BD
+		List<TblProveedorcl2> listadoproveedores =  crudimp.ListadoProveedor();
+		
+		//enviamos a la vista
+		request.setAttribute("listado", listadoproveedores);
+		
+		//redireccionamos hacia la vista *.jsp
+		request.getRequestDispatcher("/MenuPrincipal.jsp").forward(request, response);		
+	}
+
+	
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

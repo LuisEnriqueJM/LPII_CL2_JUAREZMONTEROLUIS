@@ -1,0 +1,14 @@
+package TestEntidades;
+
+import model.TblProveedorcl2;
+
+public class TestEntidadProveedor {
+
+	public static void main(String[] args) {
+
+		TblProveedorcl2 tbl = new TblProveedorcl2();
+		
+
+	}
+
+}

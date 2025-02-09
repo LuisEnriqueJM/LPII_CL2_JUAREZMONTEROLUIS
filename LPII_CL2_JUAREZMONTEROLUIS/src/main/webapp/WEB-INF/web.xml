@@ -16,6 +16,24 @@
   	<description></description>
   	<servlet-class>Controlador.ControladorLogeo</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Producto</servlet-name>
+  	<display-name>Producto</display-name>
+  	<description></description>
+  	<servlet-class>Controlador.Producto</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ControladorProducto</servlet-name>
+  	<display-name>ControladorProducto</display-name>
+  	<description></description>
+  	<servlet-class>Controlador.ControladorProducto</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ControladorProveedor</servlet-name>
+  	<display-name>ControladorProveedor</display-name>
+  	<description></description>
+  	<servlet-class>Controlador.ControladorProveedor</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ControladorLogueo</servlet-name>
   	<url-pattern>/ControladorLogueo</url-pattern>
@@ -23,5 +41,17 @@
   <servlet-mapping>
   	<servlet-name>ControladorLogeo</servlet-name>
   	<url-pattern>/ControladorLogeo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Producto</servlet-name>
+  	<url-pattern>/Producto</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ControladorProducto</servlet-name>
+  	<url-pattern>/ControladorProducto</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ControladorProveedor</servlet-name>
+  	<url-pattern>/ControladorProveedor</url-pattern>
   </servlet-mapping>
 </web-app>

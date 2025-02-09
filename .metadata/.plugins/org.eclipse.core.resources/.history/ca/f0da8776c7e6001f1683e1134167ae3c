@@ -1,0 +1,148 @@
+package Controlador;
+
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import DaoImp.ClassProveedorImp;
+import model.TblProveedorcl2;
+
+
+public class ControladorProveedor extends HttpServlet {
+	//variables
+	private static final long serialVersionUID = 1L;
+       
+	
+	//constructor
+    public ControladorProveedor() {
+        super();
+    }
+
+    
+    //funciones
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		// response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		//instanciamos la respectiva clase
+		ClassProveedorImp crudimp = new ClassProveedorImp();
+		//AÑADIMOS
+		TblProveedorcl2 tblprov = new TblProveedorcl2(); 
+		//recuperamos el listado de proveedores de la BD
+		List<TblProveedorcl2> listadoproveedores =  crudimp.ListadoProveedor();
+		//enviamos a la vista
+		request.setAttribute("listado", listadoproveedores);
+		
+		
+		//CONTINUAMOS
+		//recibimos el valor segun accion		
+		String accion = request.getParameter("accion");
+		if(accion!=null){
+			switch(accion){
+			case "Modificar":
+				int cod = Integer.parseInt(request.getParameter("cod"));
+				//asignamos los valores
+				tblprov.setIdprooveedorcl2(cod);
+				//buscamos el codigo a actualziar
+				TblProveedorcl2 prov = crudimp.BuscarProveedor(tblprov);
+				SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+				
+				//asignamos los valores
+				request.setAttribute("codigo", prov.getIdprooveedorcl2());
+				request.setAttribute("proveedor", prov.getNomproveecl2());
+				request.setAttribute("razon_social", prov.getRsocialproveecl2());
+				request.setAttribute("email", prov.getEmailproveecl2() );
+				request.setAttribute("fecha", format.format(prov.getFeingproveecl2()));
+				//redireccionamos
+				request.getRequestDispatcher("/FrmActualizarProveedor.jsp").forward(request, response);
+				
+				break;
+			case "Registrar":
+				//redireccionamos hacia la vista jsp
+				request.getRequestDispatcher("/FrmRegistrarProveedor.jsp").forward(request, response);
+				break;
+			case "Eliminar":
+				int codelim = Integer.parseInt(request.getParameter("cod"));
+				//asignamos los valores
+				tblprov.setIdprooveedorcl2(codelim);
+				//invocamos al metodo eliminar
+				crudimp.EliminarProveedor(tblprov);
+				List<TblProveedorcl2>listado=crudimp.ListadoProveedor();
+				//enviamos a la vista
+				request.setAttribute("listado", listado);
+				//redireccionamos
+				request.getRequestDispatcher("/FrmRegistrarProveedor.jsp").forward(request, response);				
+				break;
+			case "Listar":
+				//redireccionamos hacia la vista *.jsp
+				request.getRequestDispatcher("/MenuPrincipal.jsp").forward(request, response);
+				break;				
+			default:
+				//System.out.println("Looking forward to the Weekend");
+			}//fin switch
+		}//fin if		
+		
+		
+		//redireccionamos hacia la vista *.jsp
+		//request.getRequestDispatcher("/MenuPrincipal.jsp").forward(request, response);		
+	}//fin doGet
+
+	
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		//PROCEDEMOS A REGISTRAR
+		
+		//recuperamos los datos del formulario
+		String codigo = request.getParameter("codigo"); //AÑADIMOS	
+		String proveedor = request.getParameter("proveedor");
+		String razon_social = request.getParameter("razon_social");
+		String email = request.getParameter("email");
+		Date fecha = new Date();
+		Date fechasql = new Date(fecha.getTime());
+		
+		//hacer las respectivas instancias
+		TblProducto tblprod = new TblProducto();
+		ClassProductoImp climp = new ClassProductoImp();
+		
+		
+		//asignamos los valores
+		tblprod.setNomprod(producto);
+		tblprod.setCantidad(cantidad);
+		tblprod.setPrecio(precio);
+		tblprod.setTotal(total);
+		tblprod.setNrolote(nrolote);
+		tblprod.setCodbarras(codbarras);
+		tblprod.setFechaven(fechasql);
+		
+		//AÑADIMOS
+		if (codigo!=null){
+			int cod = Integer.parseInt(codigo);
+			//luego asignamos el codigo a actualziar
+			tblprod.setIdproducto(cod);
+			//invocamos el metodo a actualizar
+			climp.ActualizarProducto(tblprod);
+		}else{
+			//invocamos el metodo registrar
+			climp.RegistrarProducto(tblprod);
+		}
+		
+		//invocamos el metodo registrar
+		climp.RegistrarProducto(tblprod);
+		
+		//actualizamos el listado
+		List<TblProducto> listado = climp.ListadoProducto();
+		
+		//enviamos hacia la vista
+		request.setAttribute("listado", listado);
+		
+		//redireccionamos
+		request.getRequestDispatcher("/MenuPrincipal.jsp").forward(request, response);
+
+	}
+}
