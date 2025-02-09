@@ -1,0 +1,22 @@
+2025-02-08 23:29:29,082 [Worker-8] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Collecting project info '/pom.xml' D:\PROGRAMAS\WS\S04BDSABADOExam\LPII_CL2_JUAREZMONTEROLUIS\pom.xml
+2025-02-08 23:29:33,800 [Worker-8] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: JMLexamen:LPII_CL2_JUAREZMONTEROLUIS:0.0.1-SNAPSHOT @ D:\PROGRAMAS\WS\S04BDSABADOExam\LPII_CL2_JUAREZMONTEROLUIS\pom.xml.
+2025-02-08 23:29:35,846 [Worker-8] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /LPII_CL2_JUAREZMONTEROLUIS/src/main/java
+2025-02-08 23:29:35,848 [Worker-8] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /LPII_CL2_JUAREZMONTEROLUIS/src/main/resources
+2025-02-08 23:29:35,849 [Worker-8] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /LPII_CL2_JUAREZMONTEROLUIS/src/test/java
+2025-02-08 23:29:38,319 [Worker-8] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 9 sec
+2025-02-08 23:29:39,195 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2025-02-08 23:29:39,200 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2025-02-08 23:29:39,202 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2025-02-08 23:29:39,203 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\PROGRAMAS\WS\S04BDSABADOExam\LPII_CL2_JUAREZMONTEROLUIS\src\test\resources
+2025-02-08 23:35:41,425 [Worker-22] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: JMLexamen:LPII_CL2_JUAREZMONTEROLUIS:0.0.1-SNAPSHOT @ D:\PROGRAMAS\WS\S04BDSABADOExam\LPII_CL2_JUAREZMONTEROLUIS\pom.xml.
+2025-02-08 23:35:46,120 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2025-02-08 23:35:46,122 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2025-02-08 23:35:46,122 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2025-02-08 23:35:46,123 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\PROGRAMAS\WS\S04BDSABADOExam\LPII_CL2_JUAREZMONTEROLUIS\src\test\resources
+2025-02-08 23:35:46,123 [Worker-22] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of LPII_CL2_JUAREZMONTEROLUIS
+2025-02-08 23:35:46,124 [Worker-22] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for LPII_CL2_JUAREZMONTEROLUIS
+2025-02-08 23:35:46,127 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2025-02-08 23:35:47,526 [Worker-26] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2025-02-08 23:35:47,527 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2025-02-08 23:35:47,529 [Worker-26] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2025-02-08 23:35:47,530 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\PROGRAMAS\WS\S04BDSABADOExam\LPII_CL2_JUAREZMONTEROLUIS\src\test\resources
